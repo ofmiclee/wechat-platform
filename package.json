@@ -18,6 +18,7 @@
   "license": "MIT",
   "dependencies": {
     "aes": "^0.1.0",
+    "co-wechat": "0.0.4",
     "urllib": "^2.3.8"
   }
 }

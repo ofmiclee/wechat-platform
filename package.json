@@ -1,6 +1,6 @@
 {
   "name": "wechat-platform",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "微信第三方平台模块",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/ofmiclee/wechat-platform"
   },
   "keywords": [
     "wechat",
@@ -17,7 +17,6 @@
   "author": "MicLee",
   "license": "MIT",
   "dependencies": {
-    "aes": "^0.1.0",
     "co-wechat": "0.0.4",
     "urllib": "^2.3.8"
   }

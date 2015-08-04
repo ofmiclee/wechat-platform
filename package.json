@@ -1,6 +1,6 @@
 {
   "name": "wechat-platform",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "微信第三方平台模块",
   "main": "index.js",
   "scripts": {

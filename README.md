@@ -21,10 +21,12 @@ wechat-platform
 - 2、拿component_verify_ticket换取第三方平台component_access_token（有效期2小时），***缓存到redis***，
      不能刷新，每次从缓存获取时判断过期时间，提前重新获取；
 
-- 3、拿component_access_token换取预授权码pre_auth_code。授权码的获取，需要在用户在
+- 3、拿component_access_token换取预授权码pre_auth_code。
+
+- 4、构建跳转URL，用户授权后获取授权码authorization_code。授权码的获取，需要在用户在
      第三方平台授权页中完成授权流程后，在回调URI中通过URL参数提供给第三方平台方（有效期十分钟）
 
-- 4、使用pre_auth_code换取授权公众号的授权信息，并换取authorizer_access_token和
+- 5、使用authorization_code换取授权公众号的授权信息，并换取authorizer_access_token和
      authorizer_refresh_token（有效期2小时），***缓存到redis***，每次使用时检测token的有效期，到期后刷新；
 
-- 5、使用authorizer_access_token访问公众号API
+- 6、使用authorizer_access_token访问公众号API

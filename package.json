@@ -17,6 +17,7 @@
   "author": "MicLee",
   "license": "MIT",
   "dependencies": {
+    "co-request": "^1.0.0",
     "co-wechat": "0.0.4",
     "urllib": "^2.3.8"
   }

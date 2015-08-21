@@ -4,7 +4,7 @@ wechat-platform
 微信第三方平台工具模块
 
 
-##TOKEN
+## TOKEN
 - component_access_token
   第三方平台令牌，主要用于获取预授权码pre_auth_code  ***【有效期2小时，不能刷新】***
 
@@ -15,7 +15,7 @@ wechat-platform
   用于刷新授权方令牌，避免重新授权。
   请妥善保存，一旦丢失，只能让用户重新授权，才能再次拿到新的刷新令牌
 
-##主要步骤
+## 主要步骤
 - 1、获取微信推送给第三方平台的component_verify_ticket（十分钟推送一次），获取后 ***缓存到redis***；
 
 - 2、拿component_verify_ticket换取第三方平台component_access_token（有效期2小时），***缓存到redis***，

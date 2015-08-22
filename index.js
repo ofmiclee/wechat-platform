@@ -21,9 +21,14 @@ module.exports = {
    * 第三方平台token
    */
   ComponentToken: require('./lib/componentToken'),
-  
+
   /**
    * 公众号token
    */
-  AuthorizerToken: require('./lib/authorizerToken')
+  AuthorizerToken: require('./lib/authorizerToken'),
+
+  /**
+   * 代公众号实现业务
+   */
+  serve: require('./lib/serve')
  }

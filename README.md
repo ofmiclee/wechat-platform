@@ -45,8 +45,6 @@ var oAuth = OAuth(config.wechat);
  */
 var getComponentToken = function *() {
   var tokenData = JSON.parse(yield redisClient.get(PLATFORM_TOKEN_KEY));
-  console.log("=========tokenData-redis============");
-  console.log(tokenData);
 
   if(tokenData) {
     let componentToken = ComponentToken(tokenData);
@@ -57,8 +55,6 @@ var getComponentToken = function *() {
 
   var ticket = yield redisClient.get(PLATFORM_TICKET_KEY);
   tokenData = yield oAuth.getComponentToken(ticket);
-  console.log("=========tokenData-weixin============");
-  console.log(tokenData);
 
   var result = ComponentToken(tokenData);
   redisClient.set(PLATFORM_TOKEN_KEY, JSON.stringify(result.data));
@@ -75,4 +71,5 @@ var getComponentToken = function *() {
 
 ## 捐赠
 如果wechat-platform帮助到您了，欢迎请作者一杯咖啡。
+
 ![捐赠](https://raw.githubusercontent.com/OfMicLee/img-hosting/master/apc38b8h19qk5jcc47.png)

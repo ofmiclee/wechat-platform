@@ -26,6 +26,31 @@ $ npm install wechat-platform --save
 
 ## 代码片段示例
 
+### config.js
+
+```js
+var config = {};
+
+config.wechat = {
+  appid: 'appid',
+  appsecret: 'appsecret',
+  msg_token: 'token',
+  msg_aeskey: 'aeskey'
+};
+
+config.redis = {
+  host: '192.168.0.111',
+  port: 6379,
+  options: {
+    connect_timeout: 30000
+  }
+};
+
+module.exports = config;
+```
+
+### service.js 获取token
+
 ``` js
 /**
  * Module dependencies.
@@ -48,7 +73,7 @@ const PLATFORM_TOKEN_KEY = 'qianmi.wechat.platform.token';
 /**
  * 获取第三方平台token
  */
-var getComponentToken = function *() {
+exports.getComponentToken = function *() {
   var tokenData = JSON.parse(yield redisClient.get(PLATFORM_TOKEN_KEY));
 
   if(tokenData) {
@@ -66,6 +91,23 @@ var getComponentToken = function *() {
 
   return result.data.access_token;
 }
+```
+
+### service.js 获取微信推送事件
+
+```js
+var Event = require('wechat-platform').Message;
+
+exports.eventProxy = Event(config.wechat).proxy(function *(){
+  var info = this.weixin;
+
+  if(info.InfoType = 'component_verify_ticket') {
+    //存入缓存
+    redisClient.set(PLATFORM_TICKET_KEY, info.ComponentVerifyTicket);
+  }
+
+  this.body = 'success';
+})
 ```
 
 ***其他功能点使用于此类似***

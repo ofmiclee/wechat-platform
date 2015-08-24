@@ -1,6 +1,8 @@
 wechat-platform
 ===========
 
+[![Join the chat at https://gitter.im/OfMicLee/wechat-platform](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/OfMicLee/wechat-platform?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 微信第三方平台工具模块
 
 

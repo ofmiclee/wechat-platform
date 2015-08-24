@@ -24,13 +24,14 @@ $ npm install wechat-platform --save
 - ### 授权后功能
   - 使用authorizer_access_token访问公众号API
 
-## 代码示例
+## 代码片段示例
 
-``` javascript
+``` js
+/**
+ * Module dependencies.
+ */
 var OAuth = require('wechat-platform').OAuth;
-var Event = require('wechat-platform').Message;
 var ComponentToken = require('wechat-platform').ComponentToken;
-var AuthorizerToken = require('wechat-platform').AuthorizerToken;
 
 var RedisCo = require('./redisCo');
 var config = require('./config');
@@ -39,9 +40,13 @@ var redisClient = RedisCo(config.redis).client;
 var oAuth = OAuth(config.wechat);
 
 /**
+ * redis key
+ */
+const PLATFORM_TICKET_KEY = 'qianmi.wechat.platform.ticket';
+const PLATFORM_TOKEN_KEY = 'qianmi.wechat.platform.token';
+
+/**
  * 获取第三方平台token
- *
- * result: ComponentToken对象里的access_token
  */
 var getComponentToken = function *() {
   var tokenData = JSON.parse(yield redisClient.get(PLATFORM_TOKEN_KEY));
@@ -62,6 +67,8 @@ var getComponentToken = function *() {
   return result.data.access_token;
 }
 ```
+
+***其他功能点使用于此类似***
 
 ## 交流
 
